@@ -8,19 +8,27 @@ export default function AppTabs() {
         <Tabs screenOptions={{
             tabBarActiveTintColor: 'black',
             tabBarInactiveTintColor: '#444444',
+            tabBarActiveBackgroundColor: '#81818142',
+            animation: "fade",
 
-            tabBarStyle: {
+            tabBarStyle: { 
                 height: 55,
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 50,
-                paddingHorizontal: 8,
+                borderWidth: 1,
+                borderColor: "#7472728a",
+                //paddingHorizontal: 8,
                 marginHorizontal: 40,
                 marginBottom: 30,
-                overflow: 'hidden',
+                //overflow: 'hidden',
             },
-            tabBarItemStyle: {
-                borderRadius: 50,
+            tabBarItemStyle: { 
+                height: 55,
+                //alignItems: 'center',
+                //justifyContent: 'center',
+                //borderRadius: 50,
+                //borderWidth: 1,
             },
         }}>
             <Tabs.Screen name="index"

@@ -8,7 +8,7 @@ export default function Activity() {
             <Text style={styles.title}>Atividade</Text>
             <Text style={styles.subtitle}>Anteriores</Text>
 
-            <ButtonActivity image={require("@/assets/images/map.png")} label="Avenida Brasil, 67 - São Paulo" sublabel="3 de set. 11:01" val={5.97} />
+            <ButtonActivity image={require("@/assets/images/map.png")} label="Avenida Atlântica, 67 - São Paulo" sublabel="3 de set. 11:01" val={5.97} />
         </View>
     )
 }
