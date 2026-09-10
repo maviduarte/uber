@@ -18,7 +18,7 @@ const styles = StyleSheet.create ({
         flex: 1,
         backgroundColor: 'white',
         padding: 22,
-        marginVertical: 20,
+        marginTop: 40,
         gap: 16,
     },
 
