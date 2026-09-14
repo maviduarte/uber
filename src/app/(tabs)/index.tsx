@@ -55,9 +55,9 @@ export default function Index() {
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 10 }}>
                             <ButtonMore image={require("@/assets/images/veiculos-eletricos.png")} label="Viaje com veículos elétricos" sublabel="Viaje em um veículo totalmente elétrico" />
                             <ButtonMore image={require("@/assets/images/seguranca.png")} label="Recursos de segurança" sublabel="Recursos de segurança durante a viagem" />
-                            <ButtonMore image={require("@/assets/images/uber-electric.png")} label="Viaje com conforto" sublabel="Os motoristas parceiros mais bem avaliados e os carros mais novos" />
-                            <ButtonMore image={require("@/assets/images/uber-electric.png")} label="Viaje em grande estilo" sublabel="Viagens de alto nível em carros de luxo" />
-                            <ButtonMore image={require("@/assets/images/uber-electric.png")} label="Envie um item" sublabel="Entrega sob demanda em toda a cidade" />
+                            <ButtonMore image={require("@/assets/images/confort-travel.png")} label="Viaje com conforto" sublabel="Os motoristas parceiros mais bem avaliados e os carros mais novos" />
+                            <ButtonMore image={require("@/assets/images/style-travel.png")} label="Viaje em grande estilo" sublabel="Viagens de alto nível em carros de luxo" />
+                            <ButtonMore image={require("@/assets/images/envie-item.png")} label="Envie um item" sublabel="Entrega sob demanda em toda a cidade" />
                         </ScrollView>
                         
                         <Text style={styles.title}>Eleve sua experiência</Text>
