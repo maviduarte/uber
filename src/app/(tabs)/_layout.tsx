@@ -1,26 +1,30 @@
 // TabBar Bottom
-
 import { Tabs } from "expo-router"
+import { View } from "react-native"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 export default function AppTabs() {
     return (
         <Tabs screenOptions={{
+            headerShown: false,
             tabBarActiveTintColor: 'black',
             tabBarInactiveTintColor: '#444444',
             tabBarActiveBackgroundColor: '#81818142',
             animation: "fade",
 
             tabBarStyle: { 
+                position: 'absolute',
+                width: "70%",
                 height: 55,
-                alignItems: 'center',
-                justifyContent: 'center',
+                //alignItems: 'center',
+                //justifyContent: 'center',
+                //margin: 'auto',
                 borderRadius: 50,
                 borderWidth: 1,
                 borderColor: "#7472728a",
                 //paddingHorizontal: 8,
-                marginHorizontal: 40,
-                marginBottom: 30,
+                marginHorizontal: "15%",
+                marginBottom: 20,
                 //overflow: 'hidden',
             },
             tabBarItemStyle: { 
@@ -33,7 +37,6 @@ export default function AppTabs() {
         }}>
             <Tabs.Screen name="index"
                 options={{
-                    headerTitle: "Uber",
                     title: "Início",
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons
@@ -47,7 +50,7 @@ export default function AppTabs() {
 
             <Tabs.Screen name="options"
                 options={{
-                    headerShown: false,
+                    //headerShown: false,
                     title: "Opções",
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons
@@ -61,7 +64,7 @@ export default function AppTabs() {
 
             <Tabs.Screen name="activity"
                 options={{
-                    headerShown: false,
+                    //headerShown: false,
                     title: "Atividade",
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons
@@ -75,7 +78,7 @@ export default function AppTabs() {
 
             <Tabs.Screen name="account"
                 options={{
-                    headerShown: false,
+                    //headerShown: false,
                     title: "Conta",
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons
