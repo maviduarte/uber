@@ -1,5 +1,6 @@
 import { ScrollView, View, Text, StyleSheet, Image } from "react-native"
-import { ButtonSearchEnv, ButtonSeRe, ButtonTravelOp } from "@/components/Button"
+import { ButtonSearchEnv, ButtonSeRe, ButtonTravelOp, ButtonFloat, ButtonRequest } from "@/components/Button"
+import { MaterialIcons } from "@expo/vector-icons"
 import style from "@/constants/Colors"
 import line from "@/constants/Lines"
 
@@ -31,6 +32,45 @@ export default function Envios() {
           </View>
 
           <Text style={styles.title}>Suas tarefas são concluídas rapidamente</Text>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={styles.boxButtons}>
+              <View style={styles.boxBtn}>
+                <ButtonFloat label="Enviar documentos" />
+                <ButtonFloat label="Esqueceu um item?" />
+                <ButtonFloat label="Retirada no Marketplace" />
+              </View>
+              <View style={styles.boxBtn}>
+                <ButtonFloat label="Equipamentos para retirada de pedidos" />
+                <ButtonFloat label="Entregar pedidos de usuários" />
+                <ButtonFloat label="Entrega de doações" />
+              </View>
+              <View style={styles.boxBtn}>
+                <ButtonFloat label="Receber suprimentos" />
+                <ButtonFloat label="Envie um presente" />
+                <ButtonFloat label="Pedidos online para retirada " />
+              </View>
+            </View>
+          </ScrollView>
+
+          <View style={styles.boxNeed}>
+            <Text style={styles.title}>Entrega para necessidades pessoais e corporativas</Text>
+            <View style={styles.boxChecks}>
+              <View style={styles.boxCheck}>
+                <MaterialIcons name="check" style={styles.iconCheck} />
+                <Text style={styles.txt}>Rastreamento em tempo real e confirm...</Text>
+              </View>
+              <View style={styles.boxCheck}>
+                <MaterialIcons name="check" style={styles.iconCheck} />
+                <Text style={styles.txt}>Partidas instantâneas ou agendadas</Text>
+              </View>
+              <View style={styles.boxCheck}>
+                <MaterialIcons name="check" style={styles.iconCheck} />
+                <Text style={styles.txt}>Instruções detalhadas para entrega</Text>
+              </View>
+            </View>
+            <ButtonRequest label="Solicitar um envio" />
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -41,6 +81,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    paddingBottom: 80,
   },
 
   boxContainer: {
@@ -73,5 +114,42 @@ const styles = StyleSheet.create({
 
   boxTravel: {
     gap: 8,
+  },
+
+  boxButtons: {
+    //flexDirection: 'row',
+    gap: 8,
+  },
+
+  boxBtn: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+
+  boxNeed: {
+    backgroundColor: style.c4,
+    borderRadius: 15,
+    padding: 12,
+    gap: 14,
+  },
+
+  boxChecks: {
+    //marginTop: 8,
+    gap: 6,
+  },
+
+  boxCheck: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+
+  iconCheck: {
+    fontSize: 25,
+  },
+
+  txt: {
+    fontSize: 16,
+    fontWeight: 600,
   },
 });

@@ -94,12 +94,29 @@ export function ButtonSeRe({ label, ...rest }: ButtonProps) {
     )
 }
 
-export function ButtonTravelOp({ label, sublabel, image, ...rest}: ButtonMoreProps) {
+export function ButtonTravelOp({ label, sublabel, image, ...rest }: ButtonMoreProps) {
     return (
-        <TouchableOpacity style={[styles.btnMoreOp, {backgroundColor: "", borderWidth: 1, borderColor: style.c1, gap: 0 }]} activeOpacity={0.7} {...rest}>
+        <TouchableOpacity style={[styles.btnMoreOp, { backgroundColor: "", borderWidth: 1, borderColor: style.c1, gap: 0 }]} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMoreOp}>{label}</Text>
-            <Text style={[styles.sublabelMoreOp, {paddingRight: 0,}]}>{sublabel}</Text>
+            <Text style={[styles.sublabelMoreOp, { paddingRight: 0, }]}>{sublabel}</Text>
             <Image source={image} style={styles.imageMoreOp} />
+        </TouchableOpacity>
+    )
+}
+
+export function ButtonFloat({ label, ...rest }: ButtonProps) {
+    return (
+        <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} {...rest}>
+            <Ionicons name="reload" style={styles.iconFloat} />
+            <Text style={styles.labelFloat}>{label}</Text>
+        </TouchableOpacity>
+    )
+}
+
+export function ButtonRequest({ label, ...rest }: ButtonProps) {
+    return (
+        <TouchableOpacity style={styles.btnRequest} activeOpacity={0.7} {...rest}>
+            <Text style={styles.labelRequest}>{label}</Text>
         </TouchableOpacity>
     )
 }
@@ -141,7 +158,7 @@ export function ButtonActivity({ label, sublabel, val, image, lbassess, lbres, .
             <Text style={styles.labelDate}>{sublabel}</Text>
             <Text style={styles.labelMoney}>{val}</Text>
             <View style={styles.boxButtons} >
-                <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} onPress={() => router.push("/pages/assess")} {...rest}>
+                <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} {...rest}>
                     <MaterialIcons name="star-border" style={styles.iconFloat} />
                     <Text style={styles.labelFloat}>{lbassess}</Text>
                 </TouchableOpacity>
@@ -154,19 +171,19 @@ export function ButtonActivity({ label, sublabel, val, image, lbassess, lbres, .
     )
 }
 
-export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest}: ButtonPreviousProps) {
+export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest }: ButtonPreviousProps) {
     return (
         <TouchableOpacity style={styles.btnPrev} activeOpacity={0.7} onPress={() => router.push("/pages/infoTravel")} {...rest}>
             <View style={styles.imagePrev}>
                 <Image source={image} style={styles.imageIcons} />
             </View>
             <View style={styles.labelPrev}>
-                <Text style={[styles.labelAddress, {fontSize: 18}]}>{label}</Text>
+                <Text style={[styles.labelAddress, { fontSize: 18 }]}>{label}</Text>
                 <Text style={styles.labelDate}>{sublabel}</Text>
                 <Text style={styles.labelMoney}>{val}</Text>
             </View>
             <View style={styles.btnRes}>
-                <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} {...rest}>
+                <TouchableOpacity style={[styles.btnFloat, {marginTop: "20%"}]} activeOpacity={0.7} {...rest}>
                     <Ionicons name="reload" style={styles.iconFloat} />
                     <Text style={styles.labelFloat}>{lbres}</Text>
                 </TouchableOpacity>
@@ -179,8 +196,8 @@ export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest}: B
 export function ButtonAssess({ val, ...rest }: ButtonAssessProps) {
     return (
         <TouchableOpacity style={styles.btnAssess} {...rest}>
-            <MaterialIcons name="star" style={[styles.iconFloat, {fontSize: 13}]} />
-            <Text style={[styles.labelMoney, {fontSize: 11}]}>{val}</Text>
+            <MaterialIcons name="star" style={[styles.iconFloat, { fontSize: 13 }]} />
+            <Text style={[styles.labelMoney, { fontSize: 11 }]}>{val}</Text>
         </TouchableOpacity>
     )
 }
@@ -188,8 +205,8 @@ export function ButtonAssess({ val, ...rest }: ButtonAssessProps) {
 export function ButtonVerified({ label, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnAssess} {...rest}>
-            <MaterialIcons name="verified" style={[styles.iconFloat, {fontSize: 13, color: "blue"}]} />
-            <Text style={[styles.labelMoney, {fontSize: 11}]}>{label}</Text>
+            <MaterialIcons name="verified" style={[styles.iconFloat, { fontSize: 13, color: "blue" }]} />
+            <Text style={[styles.labelMoney, { fontSize: 11 }]}>{label}</Text>
         </TouchableOpacity>
     )
 }
@@ -211,7 +228,7 @@ export function ButtonOptions({ label, ...rest }: ButtonProps) {
     )
 }
 
-export function ButtonMoreOp({ label, sublabel, image, ...rest}: ButtonMoreProps) {
+export function ButtonMoreOp({ label, sublabel, image, ...rest }: ButtonMoreProps) {
     return (
         <TouchableOpacity style={styles.btnMoreOp} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMoreOp}>{label}</Text>
@@ -221,8 +238,51 @@ export function ButtonMoreOp({ label, sublabel, image, ...rest}: ButtonMoreProps
     )
 }
 
+export function ButtonCO2({ label, sublabel, ...rest }: ButtonSobProps) {
+    return (
+        <TouchableOpacity style={[styles.btnMoreOp, { flexDirection: 'row', alignItems: 'center', paddingBottom: 15 }]} activeOpacity={0.7} {...rest}>
+            <Text style={styles.labelMoreOp}>{label}</Text>
+            <View style={styles.boxNum}>
+                <Ionicons name="leaf" style={styles.iconCO2} />
+                <Text style={styles.sublabelCO2}>{sublabel}</Text>
+            </View>
+        </TouchableOpacity>
+    )
+}
+
+export function ButtonMostOp({ label, sublabel, ...rest }: ButtonSobProps) {
+    return (
+        <TouchableOpacity style={styles.btnMostOp} activeOpacity={0.7} {...rest}>
+            <MaterialIcons name="people-outline" style={styles.iconOptions} />
+            <View>
+                <Text style={[styles.labelMoreOp, { paddingTop: 0 }]}>{label}</Text>
+                <Text style={[styles.sublabelMoreOp, { paddingRight: 0, paddingBottom: 0, fontSize: 12 }]}>{sublabel}</Text>
+            </View>
+        </TouchableOpacity>
+    )
+}
+
+// InfoTravel
+/// Help Button
+export function ButtonHelp({ label, ...rest }: ButtonProps) {
+    return (
+        <TouchableOpacity style={[styles.btnFloat, { backgroundColor: style.c6 }]} activeOpacity={0.7} {...rest}>
+            <Text style={styles.labelFloat}>{label}</Text>
+        </TouchableOpacity>
+    )
+}
+
+export function ButtonReceipt({ label, ...rest }: ButtonProps) {
+    return (
+        <TouchableOpacity style={styles.btnReceipt} {...rest}>
+            <MaterialIcons name="receipt" style={[styles.iconFloat, { fontSize: 20 }]} />
+            <Text style={[styles.labelMoney, { fontSize: 18, fontWeight: 600 }]}>{label}</Text>
+        </TouchableOpacity>
+    )
+}
+
 const styles = StyleSheet.create({
-// Index
+    // Index
     // Search Button
     btnSearch: {
         width: '100%',
@@ -297,7 +357,7 @@ const styles = StyleSheet.create({
     iconKeyArrow: {
         position: 'absolute',
         fontSize: 16,
-        marginLeft: "95%",
+        marginLeft: "90%",
     },
 
     // Arrow Button
@@ -373,11 +433,24 @@ const styles = StyleSheet.create({
 
     labelSeRe: {
         fontSize: 16,
-        fontWeight: 700, 
-        marginLeft: 70,
+        fontWeight: 700,
+        marginLeft: "20%",
     },
 
-// Options
+    // Request Button
+    btnRequest: {
+        alignItems: 'center',
+        padding: 15,
+        borderRadius: 15,
+        backgroundColor: style.c
+    },
+
+    labelRequest: {
+        fontSize: 16,
+        fontWeight: 600,
+    },
+
+    // Options
     btnOpB: {
         width: "30%",
         height: 100,
@@ -409,7 +482,7 @@ const styles = StyleSheet.create({
         gap: 8,
     },
 
-// Activity
+    // Activity
     // Filter Button
     btnFilter: {
         backgroundColor: style.c2,
@@ -480,13 +553,13 @@ const styles = StyleSheet.create({
     labelPrev: {
         paddingRight: 200,
     },
-    
+
     btnRes: {
         position: "absolute",
         marginLeft: "70%",
     },
 
-// Account
+    // Account
     // Assess && Verified Button
     btnAssess: {
         flexDirection: 'row',
@@ -523,7 +596,7 @@ const styles = StyleSheet.create({
     iconOptions: {
         fontSize: 20,
     },
-    
+
     labelOptions: {
         fontSize: 16,
     },
@@ -535,12 +608,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingBottom: 10,
         paddingHorizontal: 18,
-        gap: 8,
+        gap: 6,
     },
 
     imageMoreOp: {
         position: 'absolute',
-        marginLeft: "85%",
+        marginLeft: "80%",
         //marginTop: 8,
         width: 70,
         height: 70,
@@ -555,5 +628,48 @@ const styles = StyleSheet.create({
     sublabelMoreOp: {
         paddingRight: 100,
         paddingBottom: 8,
+    },
+
+    // CO2 Button
+    boxNum: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 'auto',
+        marginLeft: "25%",
+        marginTop: 12,
+        gap: 8,
+    },
+
+    iconCO2: {
+        fontSize: 22,
+        color: style.c5,
+    },
+
+    sublabelCO2: {
+        fontSize: 22,
+        fontWeight: 900,
+    },
+
+    // MostOp Button
+    btnMostOp: {
+        //justifyContent: 'center',
+        alignItems: 'center',
+        //margin: 'auto',
+        flexDirection: 'row',
+        gap: 22,
+    },
+
+// InfoTravel
+    // Receipt
+    btnReceipt: {
+        width: "35%",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 4,
+        backgroundColor: style.c2,
+        borderRadius: 30,
+        padding: 16,
     },
 })
