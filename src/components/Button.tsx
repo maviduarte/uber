@@ -74,6 +74,18 @@ export function ButtonMost({ label, image, ...rest }: ButtonOptionsProps) {
     )
 }
 
+export function ButtonMostBtn({ label, sublabel, image, ...rest }: ButtonMoreProps) {
+    return (
+        <TouchableOpacity style={styles.btnMostBtn} activeOpacity={0.7} {...rest}>
+            <Text style={[styles.labelMore, {color: style.c}]}>{label}</Text>
+            <TouchableOpacity style={[styles.btnFloat, { backgroundColor: style.c }]} activeOpacity={0.7} {...rest}>
+                <Text style={styles.labelFloat}>{sublabel}</Text>
+            </TouchableOpacity>
+            <Image source={image} style={styles.imageMore} />
+        </TouchableOpacity>
+    )
+}
+
 //// Envios
 export function ButtonSearchEnv({ label, ...rest }: ButtonProps) {
     return (
@@ -183,7 +195,7 @@ export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest }: 
                 <Text style={styles.labelMoney}>{val}</Text>
             </View>
             <View style={styles.btnRes}>
-                <TouchableOpacity style={[styles.btnFloat, {marginTop: "20%"}]} activeOpacity={0.7} {...rest}>
+                <TouchableOpacity style={[styles.btnFloat, { marginTop: "20%" }]} activeOpacity={0.7} {...rest}>
                     <Ionicons name="reload" style={styles.iconFloat} />
                     <Text style={styles.labelFloat}>{lbres}</Text>
                 </TouchableOpacity>
@@ -365,19 +377,21 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: style.c1,
         borderRadius: 50,
-        marginLeft: 8,
+        marginLeft: 6,
+        marginTop: 4,
     },
 
     iconArrow: {
-        fontSize: 14,
+        fontSize: 12,
         color: style.c3,
     },
 
     // ForYou Button
     btnFY: {
         backgroundColor: style.c2,
-        paddingHorizontal: 10,
-        paddingVertical: 16,
+        margin: 'auto',
+        paddingHorizontal: 12,
+        paddingVertical: 17,
         borderRadius: 50,
     },
 
@@ -411,6 +425,14 @@ const styles = StyleSheet.create({
     labelMost: {},
 
     imageMost: {},
+
+    // MostBtn Button
+    btnMostBtn: {
+        backgroundColor: style.c0,
+        padding: 20,
+        //flexDirection: 'row',
+        borderRadius: 15,
+    },
 
     // Send && Receive Button
     btnSeRe: {
@@ -453,6 +475,7 @@ const styles = StyleSheet.create({
     // Options
     btnOpB: {
         width: "30%",
+        margin: 'auto',
         height: 100,
         backgroundColor: style.c2,
         alignItems: 'center',
@@ -474,6 +497,7 @@ const styles = StyleSheet.create({
 
     btnOpS: {
         width: "22%",
+        margin: 'auto',
         height: 100,
         backgroundColor: style.c2,
         alignItems: 'center',
@@ -660,7 +684,7 @@ const styles = StyleSheet.create({
         gap: 22,
     },
 
-// InfoTravel
+    // InfoTravel
     // Receipt
     btnReceipt: {
         width: "35%",

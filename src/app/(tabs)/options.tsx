@@ -10,11 +10,11 @@ export default function Options() {
 
             <View style={styles.boxBtn}>
                 <ButtonOptionsBig image={require("@/assets/images/car.png")} label="Viagem" onPress={() => router.push("/pages/travel")} />
-                <ButtonOptionsBig image={require("@/assets/images/ifood.png")} label="iFood" />
+                <ButtonOptionsBig image={require("@/assets/images/enviar-itens.png")} label="Enviar itens" />
                 <ButtonOptionsBig image={require("@/assets/images/reserve.png")} label="Reserve" />
-                <ButtonOptionsSmall image={require("@/assets/images/enviar-itens.png")} label="Enviar itens" />
-                <ButtonOptionsSmall image={require("@/assets/images/teens.png")} label="Teens" />
+                <ButtonOptionsSmall image={require("@/assets/images/ifood.png")} label="iFood" />
                 <ButtonOptionsSmall image={require("@/assets/images/motor.png")} label="Moto" onPress={() => router.push("/pages/travel")} />
+                <ButtonOptionsSmall image={require("@/assets/images/teens.png")} label="Teens" />
                 <ButtonOptionsSmall image={require("@/assets/images/seniors.png")} label="Seniors" />
             </View>
         </View>
@@ -41,11 +41,10 @@ const styles = StyleSheet.create ({
     },
 
     boxBtn: {
-        //flex: 1,
-        justifyContent: 'center',
+        width: "100%",
+        //justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         gap: 12,
-        //justifyContent: 'center',
     },
 }) 
