@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 import { router } from "expo-router"
 import { ButtonOptionsBig, ButtonOptionsSmall } from "@/components/Button"
+import style from "@/constants/Colors"
 
 export default function Options() {
     return (
@@ -24,7 +25,7 @@ export default function Options() {
 const styles = StyleSheet.create ({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: style.c,
         padding: 22,
         paddingTop: 60,
         gap: 16,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create ({
 
     subtitle: {
         fontSize: 18,
-        marginRight: 50,
+        paddingRight: 70,
     },
 
     boxBtn: {

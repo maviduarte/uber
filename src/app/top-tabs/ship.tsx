@@ -13,22 +13,25 @@ export default function Envios() {
             <ButtonSearchEnv label="Entregar neste endereço?" />
           </View>
 
-          <View>
-            <Text style={styles.title}>Entrega sob demanda</Text>
-            <Text>Entregadores parceiros rápidos e acessíveis</Text>
-            <Image source={require("@/assets/images/motor.png")} style={styles.image} />
+          <View style={styles.boxDelivery}>
+            <View>
+              <Text style={styles.title}>Entrega sob demanda</Text>
+              <Text>Entregadores parceiros rápidos e acessíveis</Text>
+              <Image source={require("@/assets/images/motor.png")} style={styles.image} />
+            </View>
+            <View style={styles.boxSeRe}>
+              <ButtonSeRe label="Enviar" />
+              <View style={line.l1} />
+              <ButtonSeRe label="Receber" />
+            </View>
           </View>
 
-          <View style={styles.boxSeRe}>
-            <ButtonSeRe label="Enviar" />
-            <View style={line.l1} />
-            <ButtonSeRe label="Receber" />
-          </View>
-
-          <Text style={styles.title}>Economize uma viagem</Text>
-          <View style={styles.boxTravel}>
-            <ButtonTravelOp label="Retiradas na loja" sublabel="Receba suas compras onde você estiver" image={require("@/assets/images/envios.png")} />
-            <ButtonTravelOp label="Envio Nacional" sublabel="Envie itens para todo o Brasil" image={require("@/assets/images/envios.png")} />
+          <View style={styles.boxDelivery}>
+            <Text style={styles.title}>Economize uma viagem</Text>
+            <View style={styles.boxTravel}>
+              <ButtonTravelOp label="Retiradas na loja" sublabel="Receba suas compras onde você estiver" image={require("@/assets/images/envios.png")} />
+              <ButtonTravelOp label="Envio Nacional" sublabel="Envie itens para todo o Brasil" image={require("@/assets/images/envios.png")} />
+            </View>
           </View>
 
           <Text style={styles.title}>Suas tarefas são concluídas rapidamente</Text>
@@ -80,7 +83,7 @@ export default function Envios() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: style.c,
     paddingBottom: 80,
   },
 
@@ -90,7 +93,11 @@ const styles = StyleSheet.create({
   },
 
   searchBar: {
-    paddingTop: 20,
+    paddingTop: 10,
+  },
+
+  boxDelivery: {
+    gap: 10,
   },
 
   title: {

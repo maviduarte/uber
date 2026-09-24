@@ -80,11 +80,12 @@ const styles = StyleSheet.create({
     },
 
     boxOptions: {
-        //width: '100%',
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        //margin: 'auto',
         gap: 6,
     }
 }) 

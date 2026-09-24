@@ -1,7 +1,7 @@
 import { router } from "expo-router"
 import { ScrollView, StyleSheet, Text, View } from "react-native"
 //import SearchBar from "@/components/SearchBar"
-import { ButtonSearch,  ButtonRecentAddress, ButtonArrow, ButtonForYou, ButtonMore, ButtonMostBtn } from "@/components/Button"
+import { ButtonSearch, ButtonRecentAddress, ButtonArrow, ButtonForYou, ButtonMore, ButtonMostBtn } from "@/components/Button"
 import style from "@/constants/Colors"
 import line from "@/constants/Lines"
 
@@ -10,11 +10,11 @@ export default function Home() {
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         <View style={styles.boxContainer}>
-          <View style={{gap: 15}}>
+          <View style={{ gap: 15 }}>
             <View style={styles.searchBar}>
               <ButtonSearch label="Para onde?" sublabel="Mais tarde" />
             </View>
-            
+
             <View style={styles.recentAddress}>
               <ButtonRecentAddress label="Avenida Atlântica, 67 - São Paulo" sublabel="São Paulo - SP, 08167-670" />
               <View style={line.l1} />
@@ -45,7 +45,7 @@ export default function Home() {
             </View>
           </View>
 
-          <View style={{gap: 20}}>
+          <View style={{ gap: 20 }}>
             <View style={styles.boxMoreOp}>
               <Text style={styles.title}>Mais formas de usar o app</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 10 }}>
@@ -87,7 +87,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: style.c,
     paddingBottom: 80,
   },
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: 'center',
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    //flexWrap: 'wrap',
     marginTop: 16,
     gap: 15,
   },

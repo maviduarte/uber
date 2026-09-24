@@ -3,19 +3,18 @@ import { Ionicons, MaterialIcons } from '@expo/vector-icons'
 import { router } from "expo-router"
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from "react-native"
 
-type ButtonSobProps = TouchableOpacityProps & { label: string, sublabel: string }
-type ButtonPressProps = TouchableOpacityProps
-type ButtonImageProps = TouchableOpacityProps & { image: ImageSourcePropType }
-type ButtonMoreProps = TouchableOpacityProps & { label: string, sublabel: string, image: ImageSourcePropType }
-type ButtonOptionsProps = TouchableOpacityProps & { label: string, image: ImageSourcePropType }
-type ButtonActivityProps = TouchableOpacityProps & { label: string, sublabel: string, val: number, image: ImageSourcePropType, lbassess: string, lbres: string }
-type ButtonPreviousProps = TouchableOpacityProps & { label: string, sublabel: string, val: number, image: ImageSourcePropType, lbres: string }
-type ButtonAssessProps = TouchableOpacityProps & { val: number }
-type ButtonProps = TouchableOpacityProps & { label: string }
+type ButtonProps = TouchableOpacityProps & { 
+    label?: string, 
+    sublabel?: string, 
+    val?: number, 
+    labelb?: string, 
+    sublabelb?: string, 
+    image?: ImageSourcePropType,
+}
 
 // Index Buttons 
 //// Uber
-export function ButtonSearch({ label, sublabel, ...rest }: ButtonSobProps) {
+export function ButtonSearch({ label, sublabel, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnSearch} activeOpacity={0.7} onPress={() => router.push("/pages/travel")} {...rest}>
             <Ionicons name="search" style={styles.iconSearch} />
@@ -28,7 +27,7 @@ export function ButtonSearch({ label, sublabel, ...rest }: ButtonSobProps) {
     )
 }
 
-export function ButtonRecentAddress({ label, sublabel, ...rest }: ButtonSobProps) {
+export function ButtonRecentAddress({ label, sublabel, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnRecAdd} activeOpacity={0.7} {...rest}>
             <MaterialIcons name="access-time" style={styles.iconClock} />
@@ -39,7 +38,7 @@ export function ButtonRecentAddress({ label, sublabel, ...rest }: ButtonSobProps
     )
 }
 
-export function ButtonArrow({ ...rest }: ButtonPressProps) {
+export function ButtonArrow({ ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnArrow} activeOpacity={0.7} onPress={() => router.push("/options")} {...rest}>
             <MaterialIcons name="keyboard-arrow-right" style={styles.iconArrow} />
@@ -47,7 +46,7 @@ export function ButtonArrow({ ...rest }: ButtonPressProps) {
     )
 }
 
-export function ButtonForYou({ image, ...rest }: ButtonImageProps) {
+export function ButtonForYou({ image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnFY} activeOpacity={0.7} {...rest}>
             <Image source={image} style={styles.imageIcons} />
@@ -55,7 +54,7 @@ export function ButtonForYou({ image, ...rest }: ButtonImageProps) {
     )
 }
 
-export function ButtonMore({ label, sublabel, image, ...rest }: ButtonMoreProps) {
+export function ButtonMore({ label, sublabel, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnMore} activeOpacity={0.7} {...rest}>
             <Image source={image} style={styles.imageMore} />
@@ -65,7 +64,7 @@ export function ButtonMore({ label, sublabel, image, ...rest }: ButtonMoreProps)
     )
 }
 
-export function ButtonMost({ label, image, ...rest }: ButtonOptionsProps) {
+export function ButtonMost({ label, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnMost} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMost}>{label}</Text>
@@ -74,14 +73,16 @@ export function ButtonMost({ label, image, ...rest }: ButtonOptionsProps) {
     )
 }
 
-export function ButtonMostBtn({ label, sublabel, image, ...rest }: ButtonMoreProps) {
+export function ButtonMostBtn({ label, sublabel, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnMostBtn} activeOpacity={0.7} {...rest}>
-            <Text style={[styles.labelMore, {color: style.c}]}>{label}</Text>
-            <TouchableOpacity style={[styles.btnFloat, { backgroundColor: style.c }]} activeOpacity={0.7} {...rest}>
-                <Text style={styles.labelFloat}>{sublabel}</Text>
-            </TouchableOpacity>
-            <Image source={image} style={styles.imageMore} />
+            <View style={{ gap: 10, maxWidth: 150 }}>
+                <Text style={[styles.labelMore, { color: style.c, fontSize: 18 }]}>{label}</Text>
+                <TouchableOpacity style={[styles.btnFloat, { backgroundColor: style.c, flexDirection: 'column', width: "85%" }]} activeOpacity={0.7} {...rest}>
+                    <Text style={styles.labelFloat}>{sublabel}</Text>
+                </TouchableOpacity>
+            </View>
+            <Image source={image} style={styles.imageMostBtn} />
         </TouchableOpacity>
     )
 }
@@ -106,7 +107,7 @@ export function ButtonSeRe({ label, ...rest }: ButtonProps) {
     )
 }
 
-export function ButtonTravelOp({ label, sublabel, image, ...rest }: ButtonMoreProps) {
+export function ButtonTravelOp({ label, sublabel, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={[styles.btnMoreOp, { backgroundColor: "", borderWidth: 1, borderColor: style.c1, gap: 0 }]} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMoreOp}>{label}</Text>
@@ -134,7 +135,7 @@ export function ButtonRequest({ label, ...rest }: ButtonProps) {
 }
 
 // Options Buttons
-export function ButtonOptionsBig({ label, image, ...rest }: ButtonOptionsProps) {
+export function ButtonOptionsBig({ label, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnOpB} activeOpacity={0.7} {...rest}>
             <Image source={image} style={styles.imageIcons} />
@@ -143,7 +144,7 @@ export function ButtonOptionsBig({ label, image, ...rest }: ButtonOptionsProps) 
     )
 }
 
-export function ButtonOptionsSmall({ label, image, ...rest }: ButtonOptionsProps) {
+export function ButtonOptionsSmall({ label, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnOpS} activeOpacity={0.7} {...rest}>
             <Image source={image} style={styles.imageIcons} />
@@ -154,7 +155,7 @@ export function ButtonOptionsSmall({ label, image, ...rest }: ButtonOptionsProps
 
 
 // Activity Buttons
-export function ButtonFilter({ ...rest }: ButtonPressProps) {
+export function ButtonFilter({ ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnFilter} activeOpacity={0.7} {...rest}>
             <MaterialIcons name="filter-list" style={styles.iconFilter} />
@@ -162,28 +163,28 @@ export function ButtonFilter({ ...rest }: ButtonPressProps) {
     )
 }
 
-export function ButtonActivity({ label, sublabel, val, image, lbassess, lbres, ...rest }: ButtonActivityProps) {
+export function ButtonActivity({ label, sublabel, val, image, labelb, sublabelb, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnAct} activeOpacity={0.7} onPress={() => router.push("/pages/infoTravel")} {...rest}>
             <Image source={image} style={styles.imageMap} />
             <Text style={styles.labelAddress}>{label}</Text>
             <Text style={styles.labelDate}>{sublabel}</Text>
-            <Text style={styles.labelMoney}>{val}</Text>
+            <Text style={styles.labelMoney}>R${val}</Text>
             <View style={styles.boxButtons} >
                 <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} {...rest}>
                     <MaterialIcons name="star-border" style={styles.iconFloat} />
-                    <Text style={styles.labelFloat}>{lbassess}</Text>
+                    <Text style={styles.labelFloat}>{labelb}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.btnFloat} activeOpacity={0.7} {...rest}>
                     <Ionicons name="reload" style={styles.iconFloat} />
-                    <Text style={styles.labelFloat}>{lbres}</Text>
+                    <Text style={styles.labelFloat}>{sublabelb}</Text>
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
     )
 }
 
-export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest }: ButtonPreviousProps) {
+export function ButtonPrevious({ image, label, sublabel, val, labelb, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnPrev} activeOpacity={0.7} onPress={() => router.push("/pages/infoTravel")} {...rest}>
             <View style={styles.imagePrev}>
@@ -192,12 +193,12 @@ export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest }: 
             <View style={styles.labelPrev}>
                 <Text style={[styles.labelAddress, { fontSize: 18 }]}>{label}</Text>
                 <Text style={styles.labelDate}>{sublabel}</Text>
-                <Text style={styles.labelMoney}>{val}</Text>
+                <Text style={styles.labelMoney}>R${val}</Text>
             </View>
             <View style={styles.btnRes}>
                 <TouchableOpacity style={[styles.btnFloat, { marginTop: "20%" }]} activeOpacity={0.7} {...rest}>
                     <Ionicons name="reload" style={styles.iconFloat} />
-                    <Text style={styles.labelFloat}>{lbres}</Text>
+                    <Text style={styles.labelFloat}>{labelb}</Text>
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
@@ -205,7 +206,7 @@ export function ButtonPrevious({ image, label, sublabel, val, lbres, ...rest }: 
 }
 
 // Account Buttons
-export function ButtonAssess({ val, ...rest }: ButtonAssessProps) {
+export function ButtonAssess({ val, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnAssess} {...rest}>
             <MaterialIcons name="star" style={[styles.iconFloat, { fontSize: 13 }]} />
@@ -223,7 +224,7 @@ export function ButtonVerified({ label, ...rest }: ButtonProps) {
     )
 }
 
-export function ButtonPersonPhoto({ ...rest }: ButtonPressProps) {
+export function ButtonPersonPhoto({ ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnPersonPhoto} {...rest}>
             <MaterialIcons name="person-outline" style={styles.iconPersonPhoto} />
@@ -240,7 +241,7 @@ export function ButtonOptions({ label, ...rest }: ButtonProps) {
     )
 }
 
-export function ButtonMoreOp({ label, sublabel, image, ...rest }: ButtonMoreProps) {
+export function ButtonMoreOp({ label, sublabel, image, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnMoreOp} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMoreOp}>{label}</Text>
@@ -250,7 +251,7 @@ export function ButtonMoreOp({ label, sublabel, image, ...rest }: ButtonMoreProp
     )
 }
 
-export function ButtonCO2({ label, sublabel, ...rest }: ButtonSobProps) {
+export function ButtonCO2({ label, sublabel, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={[styles.btnMoreOp, { flexDirection: 'row', alignItems: 'center', paddingBottom: 15 }]} activeOpacity={0.7} {...rest}>
             <Text style={styles.labelMoreOp}>{label}</Text>
@@ -262,7 +263,7 @@ export function ButtonCO2({ label, sublabel, ...rest }: ButtonSobProps) {
     )
 }
 
-export function ButtonMostOp({ label, sublabel, ...rest }: ButtonSobProps) {
+export function ButtonMostOp({ label, sublabel, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity style={styles.btnMostOp} activeOpacity={0.7} {...rest}>
             <MaterialIcons name="people-outline" style={styles.iconOptions} />
@@ -358,12 +359,12 @@ const styles = StyleSheet.create({
         backgroundColor: style.c2,
         padding: 10,
         borderRadius: 10,
-        marginLeft: 10,
+        //marginLeft: 10,
     },
 
     labelAdd: {
         fontSize: 15,
-        marginLeft: 45,
+        marginLeft: "12%",
     },
 
     iconKeyArrow: {
@@ -429,9 +430,15 @@ const styles = StyleSheet.create({
     // MostBtn Button
     btnMostBtn: {
         backgroundColor: style.c0,
-        padding: 20,
-        //flexDirection: 'row',
+        paddingLeft: 20,
+        paddingTop: 10,
+        flexDirection: 'row',
         borderRadius: 15,
+    },
+
+    imageMostBtn: {
+        width: 170,
+        height: 130,
     },
 
     // Send && Receive Button
@@ -609,6 +616,7 @@ const styles = StyleSheet.create({
     // Options Button
     btnOptions: {
         width: '48%',
+        margin: 'auto',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
